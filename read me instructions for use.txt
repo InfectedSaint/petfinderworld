@@ -1,0 +1,59 @@
+🐾 Pet Page Maker — Quick Reminder
+
+This small WPF app creates a simple webpage (index.html) containing your pet’s info, ready to host online or share.
+
+⚙️ What It Does
+
+Builds index.html with your pet’s:
+
+Name and photo
+
+Owner contact info
+
+Vet name, address, and phone
+
+Home address (used for a Google Maps link)
+
+Outputs a ready-to-use webpage that can be uploaded to GitHub Pages or another host.
+
+(The QR code must still be generated separately — see below.)
+
+🧩 Steps to Use
+
+Place PetPageMaker.exe anywhere convenient.
+
+Put your pet’s image in the same folder as the EXE.
+
+Example: oscar.png
+
+Run PetPageMaker.exe.
+
+Fill in your pet’s information and select the photo.
+
+Click Generate Page.
+
+It will create index.html in the same folder as the EXE and image.
+
+📁 Example Folder Layout
+PetPageMaker.exe
+oscar.png
+index.html
+
+
+You can open index.html directly or upload it to your GitHub Pages repo.
+
+🧾 Making a QR Code (Optional)
+
+If you want to add a QR code to your pet’s collar tag:
+
+Install Python and segno:
+
+pip install segno
+
+
+Run this command:
+
+python -m segno "https://YOURNAME.github.io/pet-oscar/" --error h --scale 8 --border 4 -o oscar-qr.png
+
+
+Save or engrave oscar-qr.png onto your tag.
