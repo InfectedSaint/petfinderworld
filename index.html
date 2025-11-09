@@ -2,71 +2,49 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Found Dog: Oscar</title>
+  <title>Pet Finder World</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="If you found Oscar, please contact his family. Thank you!" />
   <style>
-    :root { --bg:#0f172a; --fg:#e5e7eb; --muted:#94a3b8; --card:#111827; --accent:#22c55e; }
-    *{box-sizing:border-box} body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial;background:var(--bg);color:var(--fg)}
-    .wrap{max-width:720px;margin:0 auto;padding:24px}
-    .card{background:var(--card);border-radius:16px;padding:20px;box-shadow:0 8px 30px rgba(0,0,0,.25);border:1px solid #1f2937}
-    h1{margin:0 0 6px;font-size:1.8rem} h2{margin:16px 0 6px;font-size:1.1rem;color:var(--muted);font-weight:600;letter-spacing:.02em}
-    .grid{display:grid;gap:12px}
-    .btn{display:block;text-decoration:none;background:#1e293b;border:1px solid #334155;padding:12px 14px;border-radius:12px;color:var(--fg);font-weight:600;text-align:center}
-    .btn:hover{border-color:#475569}
-    .btn.call{background:#14532d;border-color:#166534}
-    .btn.sms{background:#06531d;border-color:#0b4b7a}
-    .list{margin:0;padding-left:16px;color:var(--muted)}
-    .row{display:flex;gap:10px;flex-wrap:wrap}
-    .tag{padding:6px 10px;border-radius:999px;background:#0b1220;border:1px solid #1f2a44;color:#9fb3c8;font-size:.9rem}
-    footer{margin-top:18px;color:#64748b;font-size:.85rem}
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;margin:0;background:#0b1520;color:#e8f3ff}
+    header{padding:28px 20px;border-bottom:1px solid #193146}
+    h1{margin:0;font-size:24px}
+    main{padding:24px;max-width:1000px;margin:auto}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+    .card{background:#0f1f2d;border:1px solid #1b3348;border-radius:12px;padding:14px;text-decoration:none;color:inherit}
+    .card:hover{border-color:#28d1e4}
+    .name{font-weight:700;font-size:18px;margin-bottom:6px}
+    .url{font-size:12px;opacity:.8;word-break:break-all}
+    .note{opacity:.8;margin-top:14px;font-size:14px}
+    footer{padding:24px 20px;border-top:1px solid #193146;opacity:.8}
+    code{background:#0b1a27;padding:2px 6px;border-radius:6px}
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <div class="card">
-      <h1>Found Dog: <strong>Oscar</strong></h1>
+  <header><h1>Pet Finder World — Lost Pet Lookup</h1></header>
+  <main>
+    <div id="pet-list" class="grid"></div>
+    <p class="note">Scan a tag’s QR code to open a pet’s page directly.</p>
+  </main>
+  <footer>
+    Add a new pet by creating a folder under <code>/pets/&lt;petname&gt;/</code> with its own <code>index.html</code> and image.
+  </footer>
 
-      <img src="oscar.png" alt="Oscar the dog" style="max-width:100%; border-radius:12px; margin:16px 0;">
+  <script>
+  // Simple, explicit registry (edit as you add pets)
+  const PETS = [
+    { name: "Oscar", slug: "Oscar" },
+    { name: "Honey B", slug: "Honey B" },
+    // { name: "Bella", slug: "bella" },
+    // { name: "Rocky", slug: "rocky" },
+  ];
 
-      <div class="row" aria-hidden="true">
-        <span class="tag">Friendly</span>
-        <span class="tag">Microchipped</span>
-        <span class="tag">Sensitive tummy</span>
-      </div>
-
-      <h2>Contact Family</h2>
-      <div class="grid">
-        <a class="btn call" href="tel:+1-850-281-1507">Call Carrie • +1 (850) 281-1507</a>
-        <a class="btn sms" href="sms:+1-850-281-1507">Text Carrie</a>
-        <a class="btn" href="tel:+1-251-721-1218">Backup • John • +1 (251) 721-1218</a>
-      </div>
-
-      <h2>Home (for return)</h2>
-      <div class="grid">
-        <div>4661 Rigby Rd, Century, FL 32535</div>
-        <a class="btn" target="_blank" rel="noopener"
-           href="https://maps.google.com/?q=4661+Rigby+Rd+Century+FL+32535">Open in Google Maps</a>
-      </div>
-
-      <h2>Vet & Medical</h2>
-      <ul class="list">
-        <li>Vet: Lee Veterinary Clinic</li>
-        <li>Address: 484 Bachelor Rd., Atmore, AL 36502</li>
-        <li>Phone: <a href="tel:+1-251-368-8668">(251) 368-8668</a></li>
-        <li>Snack tip: Oscar loves dehydrated sweet potatoes.</li>
-      </ul>
-
-      <h2>Notes</h2>
-      <ul class="list">
-        <li>Very friendly; responds to “Oscar.”</li>
-        <li>He has a sensitive tummy — dehydrated sweet potatoes and water will hold him over untill we can pick him up. Thank you.</li>
-      </ul>
-
-      <footer>
-        Thank you so much for helping Oscar get home safely. ❤️
-      </footer>
-    </div>
-  </div>
+  const el = document.getElementById('pet-list');
+  el.innerHTML = PETS.map(p => `
+    <a class="card" href="pets/${p.slug}/">
+      <div class="name">${p.name}</div>
+      <div class="url">/pets/${p.slug}/</div>
+    </a>
+  `).join('');
+  </script>
 </body>
 </html>
