@@ -1,0 +1,16 @@
+{
+  "Name": "Oscar",
+  "PrimaryOwnerName": "Carrie",
+  "PrimaryPhone": "8502811507",
+  "BackupOwnerName": "John",
+  "BackupPhone": "2517211218",
+  "Street": "4661 Rigby Rd",
+  "CityStateZip": "Century FL 32535",
+  "VetName": "Lee Veterinary Clinic",
+  "VetAddress": "484 Bachelor Rd. Atmore, AL 36502",
+  "VetPhone": "(251) 368-8668",
+  "Notes": "Oscar is a friendly dog. He has a sensitive tummy, and both his hind legs have had surgery (Please lift him over any Olympic jumps). Oscar is fully vaccinated, and his preferred snack is dehydrated sweet potatoes!",
+  "PhotoPath": "D:\\Pet finder world website\\p\\oscar-bzc0lao1\\photo.jpg",
+  "OutputImageName": "photo.jpg",
+  "SiteRoot": "D:\\Pet finder world website"
+}
