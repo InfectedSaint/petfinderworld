@@ -2,3 +2,12 @@
 *.bak
 Thumbs.db
 .DS_Store
+# Build / binaries
+*.exe
+*.msi
+*.pdb
+*.dll
+/bin/
+/obj/
+/publish/
+/Pet page gen/
