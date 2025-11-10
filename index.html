@@ -1,50 +1,28 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8">
   <title>Pet Finder World</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Do not index the root if you prefer; remove this if you want the homepage indexed -->
+  <meta name="robots" content="noindex,nofollow">
   <style>
-    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;margin:0;background:#0b1520;color:#e8f3ff}
-    header{padding:28px 20px;border-bottom:1px solid #193146}
-    h1{margin:0;font-size:24px}
-    main{padding:24px;max-width:1000px;margin:auto}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
-    .card{background:#0f1f2d;border:1px solid #1b3348;border-radius:12px;padding:14px;text-decoration:none;color:inherit}
-    .card:hover{border-color:#28d1e4}
-    .name{font-weight:700;font-size:18px;margin-bottom:6px}
-    .url{font-size:12px;opacity:.8;word-break:break-all}
-    .note{opacity:.8;margin-top:14px;font-size:14px}
-    footer{padding:24px 20px;border-top:1px solid #193146;opacity:.8}
-    code{background:#0b1a27;padding:2px 6px;border-radius:6px}
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, Segoe UI, Roboto, Arial, sans-serif; margin: 0; display: grid; min-height: 100dvh; place-items: center; background:#0b1520; color:#e8f3ff;}
+    .card { max-width: 720px; padding: 24px; border: 1px solid #1b3348; border-radius: 14px; background:#0f1f2d; }
+    h1 { margin: 0 0 10px; font-size: 22px; }
+    p { margin: 8px 0; opacity: .9; }
+    .muted { opacity: .7; font-size: 14px; }
+    .ok { display:inline-block; margin-top:10px; background:#28d1e4; color:#06202c; padding:10px 14px; border-radius:10px; text-decoration:none; font-weight:700 }
   </style>
 </head>
 <body>
-  <header><h1>Pet Finder World — Lost Pet Lookup</h1></header>
-  <main>
-    <div id="pet-list" class="grid"></div>
-    <p class="note">Scan a tag’s QR code to open a pet’s page directly.</p>
-  </main>
-  <footer>
-    Add a new pet by creating a folder under <code>/pets/&lt;petname&gt;/</code> with its own <code>index.html</code> and image.
-  </footer>
-
-  <script>
-  // Simple, explicit registry (edit as you add pets)
-  const PETS = [
-    { name: "Oscar", slug: "Oscar" },
-    { name: "Honey B", slug: "Honey B" },
-    // { name: "Bella", slug: "bella" },
-    // { name: "Rocky", slug: "rocky" },
-  ];
-
-  const el = document.getElementById('pet-list');
-  el.innerHTML = PETS.map(p => `
-    <a class="card" href="pets/${p.slug}/">
-      <div class="name">${p.name}</div>
-      <div class="url">/pets/${p.slug}/</div>
-    </a>
-  `).join('');
-  </script>
+  <div class="card">
+    <h1>Pet Finder World</h1>
+    <p>If you found a pet with our tag, please <strong>scan the QR code on the collar</strong> — it opens that pet’s private info page to contact the owner.</p>
+    <p class="muted">For privacy, pet pages are not listed here and are not indexed by search engines.</p>
+    <p class="muted">Need help? Email: info@petfinderworld.org</p>
+    <!-- Optional: add a code box later if you want -->
+  </div>
 </body>
 </html>
